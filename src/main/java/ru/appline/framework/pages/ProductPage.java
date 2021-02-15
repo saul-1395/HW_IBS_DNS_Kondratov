@@ -47,11 +47,7 @@ public class ProductPage extends BasePage {
         System.out.println(" product " + product.getText());
         // clickButton(product.findElement(By.xpath(".//select")));
         clickButton(product.findElement(By.xpath(".//select/option[contains(text(), '2 года')]")));
-        try {
-            sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         if (PScost == converter(inscost.getText())) {
             Assertions.fail(" Значения не поменялись ");
         }

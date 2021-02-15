@@ -16,7 +16,7 @@ import static ru.appline.framework.managers.PageManager.getPageManager;
 public class BasePage {
 
     protected PageManager app = getPageManager();
-    //    WebDriver driver;
+
     WebDriverWait wait = new WebDriverWait(getWebDriver(), 15, 1000);
     /**
      * Находит стоимость корзины в верхней панели

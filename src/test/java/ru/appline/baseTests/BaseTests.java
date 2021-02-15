@@ -17,8 +17,6 @@ import static ru.appline.framework.utils.PropertyConst.APP_URL;
 
 public class BaseTests {
 
-    protected static WebDriver driver;
-    protected static WebDriverWait wait;
     protected JavascriptExecutor jse;
     protected PageManager app = PageManager.getPageManager();
 

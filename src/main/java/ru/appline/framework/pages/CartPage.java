@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
+import static java.lang.Thread.sleep;
 import static ru.appline.framework.managers.DriverManager.getWebDriver;
 
 public class CartPage extends BasePage {
@@ -156,9 +157,15 @@ public class CartPage extends BasePage {
         WebElement battonPlus = product.findElement(By.xpath("//i[@class='count-buttons__icon-plus']")); //кнопка +
 
         while (i > 0) {                                        // передаём как аргумент нужного кол-ва товаров
+
             int tempcount = converter(productCount.getText()); // получаем  кол-во товаров между - и + которое, у нас в начале 1
             clickButton(battonPlus);                           // нажимаем +
             while (tempcount == countProd) {                   // если начальное и текущее значения равны
+                try {
+                    sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 tempcount = converter(productCount.getText()); // запрашиваем текущее значение кол-ва товаров, цикл запроса крутится пока темпкаунт не станет 2
             }
             countProd++;                                       // увеличили счетчик на 1
@@ -185,6 +192,7 @@ public class CartPage extends BasePage {
         boolean flag = true;
         while (flag) {
             try {
+                sleep(200);
                 System.out.println(converter(cart.getText()));
                 flag = false;
             } catch (Exception e) {
